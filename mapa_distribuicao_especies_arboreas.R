@@ -21,10 +21,10 @@ library(cols4all)
 species_name <- c("Paubrasilia echinata")
 occ_data <- occ_search(scientificName = species_name, limit = 500)
 
-species_name1 <- c("Araucaria angustifolia")
+species_name1 <- c("Dimorphandra wilsonii Rizzini")
 occ_data1 <- occ_search(scientificName = species_name1, limit = 500)
 
-species_name2 <- c("Euterpe edulis")
+species_name2 <- c("Bertholletia excelsa")
 occ_data2 <- occ_search(scientificName = species_name2, limit = 500)
 
 species_name3 <- c("Cariniana legalis")
@@ -103,6 +103,7 @@ ylim <- c(-37, 6.7)
 # Definir cores
 
 cols4all::c4a_table(type = "cat", n = 5)
+c4a_gui()
 
 # Criar mapa básico com ggplot2
 
@@ -110,21 +111,21 @@ ggplot() +
  geom_sf(data = brazil, fill = "#000000") +  
   geom_sf(data = coords_sf_brazil, aes(color = "Paubrasilia echinata"),
           size = 2.3, alpha = 0.8, shape = 18) + 
-  geom_sf(data = coords_sf_brazil1, aes(color = "Araucaria angustifolia"), 
+ geom_sf(data = coords_sf_brazil1, aes(color = "Dimorphandra wilsonii Rizzini"), 
           size = 2.3, alpha = 0.8, shape = 18) + 
-  geom_sf(data = coords_sf_brazil2, aes(color = "Euterpe edulis"),
+  geom_sf(data = coords_sf_brazil2, aes(color = "Bertholletia excelsa"),
           size = 2.3, alpha = 0.8, shape = 18) + 
-  geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
-          size = 2.3, alpha = 0.8, shape = 18) +
+#  geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
+#          size = 2.3, alpha = 0.8, shape = 18) +
   geom_sf(data = coords_sf_brazil4, aes(color = "Anadenanthera colubrina"),
-          size = 2.3, alpha = 0.8, shape = 18) +
+        size = 2.3, alpha = 0.8, shape = 18) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
                                 expression(italic("Araucaria angustifolia")),
                                 expression(italic("Euterpe edulis")),
                                 expression(italic("Cariniana legalis")),
                                 expression(italic("Anadenanthera colubrina"))),
       values = c(c(	
-c("#6699CC", "#004488", "#EECC66", "#994455", "#997700")))) + 
+c("#994455", "#6699CC", "#004488", "#EECC66")))) + 
   coord_sf(xlim = xlim, ylim = ylim) +
   labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
