@@ -102,15 +102,15 @@ ggplot() +
   geom_sf(data = america, fill = "black", 
           color = "#d9f0a3") +  # Fronteiras dos países
   geom_sf(data = coords_sf, aes(color = "Mustela nigripes"),
-          size = 2.3, alpha = 0.8) + 
+          size = 2, alpha = 0.9) + 
   geom_sf(data = coords_sf1, aes(color = "Bison bison"), 
-          size = 2.3, alpha = 0.8) + 
+          size = 2, alpha = 0.9) + 
   geom_sf(data = coords_sf2, aes(color = "Gymnogyps californianus"),
-          size = 2.3, alpha = 0.8) + 
+          size = 2, alpha = 0.9) + 
   geom_sf(data = coords_sf3, aes(color = "Oncorhynchus nerka"),
-          size = 2.3, alpha = 0.8) +
+          size = 2, alpha = 0.9) +
   geom_sf(data = coords_sf4, aes(color = "Canis rufus"),
-          size = 2.3, alpha = 0.8) +
+          size = 2, alpha = 0.9) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
                                 expression(italic("Bison bison")),
                                 expression(italic("Gymnogyps californianus")),
