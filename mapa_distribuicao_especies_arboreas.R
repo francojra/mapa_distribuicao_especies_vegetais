@@ -15,67 +15,29 @@ library(cols4all)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
-# Buscar dados de ocorrência no GBIF para uma espécie específica
-# Exemplo: Panthera onca (onça-pintada)
+# Buscar dados de ocorrência no GBIF para espécies específicas
 
-species_name <- c("Paubrasilia echinata")
-occ_data <- occ_search(scientificName = species_name, limit = 500)
+species_list <- c("Paubrasilia echinata", "Setaria parviflora", 
+                  "Achyrocline satureioides", "Bertholletia excelsa", 
+                  "Myracrodruon urundeuva")
 
-species_name1 <- c("Dimorphandra wilsonii Rizzini") # Cerrado
-occ_data1 <- occ_search(scientificName = species_name1, limit = 500)
+# Função para buscar dados de uma espécie
 
-species_name2 <- c("Achyrocline satureioides") # Pampa
-occ_data2 <- occ_search(scientificName = species_name2, limit = 500)
+get_occ_data <- function(species_name) {
+  occ_search(scientificName = species_name, limit = 500)$data %>%
+    filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
+    select(decimalLongitude, decimalLatitude) %>%
+    mutate(species = species_name)
+}
 
-species_name3 <- c("Bertholletia excelsa") # Amazonia
-occ_data3 <- occ_search(scientificName = species_name3, limit = 500)
+# Buscar dados para todas as espécies
 
-species_name4 <- c("Anadenanthera colubrina")
-occ_data4 <- occ_search(scientificName = species_name4, limit = 500)
-
-# Extrair coordenadas
-
-coords <- occ_data$data %>%
-  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
-  select(decimalLongitude, decimalLatitude)
-
-coords1 <- occ_data1$data %>%
-  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
-  select(decimalLongitude, decimalLatitude)
-
-coords2 <- occ_data2$data %>%
-  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
-  select(decimalLongitude, decimalLatitude)
-
-coords3 <- occ_data3$data %>%
-  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
-  select(decimalLongitude, decimalLatitude)
-
-coords4 <- occ_data4$data %>%
-  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude)) %>%
-  select(decimalLongitude, decimalLatitude)
+all_occ_data <- bind_rows(lapply(species_list, get_occ_data))
 
 # Converter para objeto sf
 
-coords_sf <- st_as_sf(coords, coords = c("decimalLongitude", 
-                                         "decimalLatitude"), 
-                      crs = 4326)
+coords_sf_all <- st_as_sf(all_occ_data, coords = c("decimalLongitude", "decimalLatitude"), crs = 4326)
 
-coords_sf1 <- st_as_sf(coords1, coords = c("decimalLongitude", 
-                                         "decimalLatitude"), 
-                      crs = 4326)
-
-coords_sf2 <- st_as_sf(coords2, coords = c("decimalLongitude", 
-                                         "decimalLatitude"), 
-                      crs = 4326)
-
-coords_sf3 <- st_as_sf(coords3, coords = c("decimalLongitude", 
-                                         "decimalLatitude"), 
-                      crs = 4326)
-
-coords_sf4 <- st_as_sf(coords4, coords = c("decimalLongitude", 
-                                         "decimalLatitude"), 
-                      crs = 4326)
 
 # Obter dados das fronteiras dos países
 
@@ -87,11 +49,7 @@ brazil <- world %>% filter(name == "Brazil")
 
 # Filtrar ocorrências para aquelas dentro do Brasil
 
-coords_sf_brazil <- coords_sf[brazil, ]
-coords_sf_brazil1 <- coords_sf1[brazil, ]
-coords_sf_brazil2 <- coords_sf2[brazil, ]
-coords_sf_brazil3 <- coords_sf3[brazil, ]
-coords_sf_brazil4 <- coords_sf4[brazil, ]
+coords_sf_brazil <- st_intersection(coords_sf_all, brazil)
 
 # Ajustar os limites do mapa para focar na América do Norte
 
@@ -109,25 +67,25 @@ c4a_gui()
 
 ggplot() +
  geom_sf(data = brazil, fill = "#000000") +  
-  geom_sf(data = coords_sf_brazil, aes(color = "Paubrasilia echinata"),
-          size = 2.3, alpha = 0.8, shape = 18) + 
- geom_sf(data = coords_sf_brazil1, aes(color = "Dimorphandra wilsonii Rizzini"), 
-          size = 2.3, alpha = 0.8, shape = 18) + 
-  geom_sf(data = coords_sf_brazil2, aes(color = "Bertholletia excelsa"),
-          size = 2.3, alpha = 0.8, shape = 18) + 
- geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
-          size = 2.3, alpha = 0.8, shape = 18) +
-  geom_sf(data = coords_sf_brazil4, aes(color = "Anadenanthera colubrina"),
-        size = 2.3, alpha = 0.8, shape = 18) +
-  scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
-                                expression(italic("Araucaria angustifolia")),
-                                expression(italic("Euterpe edulis")),
-                                expression(italic("Cariniana legalis")),
-                                expression(italic("Anadenanthera colubrina"))),
-      values = c(c(	
-c("#CC6677", "#332288", "#DDCC77", "#117733", "#88CCEE")))) + 
+geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.3, 
+        alpha = 0.8, shape = 18) +  # Ocorrências das espécies no Brasil
+  scale_color_manual(
+    values = c(
+      "Paubrasilia echinata" = "#CC6677",
+      "Setaria parviflora" = "#332288",
+      "Achyrocline satureioides" = "#DDCC77",
+      "Bertholletia excelsa" = "#117733",
+      "Myracrodruon urundeuva" = "#88CCEE"
+    ),
+    labels = c(
+      "Paubrasilia echinata" = expression(italic("Paubrasilia echinata")),
+      "Setaria parviflora" = expression(italic("Setaria parviflora")),
+      "Achyrocline satureioides" = expression(italic("Achyrocline satureioides")),
+      "Bertholletia excelsa" = expression(italic("Bertholletia excelsa")),
+      "Myracrodruon urundeuva" = expression(italic("Myracrodruon urundeuva"))
+    )) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
+  labs(title = "Distribuição de Espécies Vegetais Ameaçadas\n de Extinção no Brasil",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
