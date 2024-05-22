@@ -107,8 +107,7 @@ cols4all::c4a_table(type = "cat", n = 5)
 # Criar mapa básico com ggplot2
 
 ggplot() +
- geom_sf(data = brazil, fill = "#000000", 
-          color = "#d9f0a3") +  
+ geom_sf(data = brazil, fill = "#000000") +  
   geom_sf(data = coords_sf_brazil, aes(color = "Paubrasilia echinata"),
           size = 2.2, alpha = 0.9, shape = 18) + 
   geom_sf(data = coords_sf_brazil1, aes(color = "Araucaria angustifolia"), 
@@ -124,9 +123,8 @@ ggplot() +
                                 expression(italic("Euterpe edulis")),
                                 expression(italic("Cariniana legalis")),
                                 expression(italic("Anadenanthera colubrina"))),
-      values = c(c("#469D76", "#C93F55", 
-                    "#EACC62", "#DF9ED4", 
-                              "#3C4B99"))) + 
+      values = c(c(	
+c("#6699CC", "#004488", "#EECC66", "#994455", "#997700")))) + 
   coord_sf(xlim = xlim, ylim = ylim) +
   labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
