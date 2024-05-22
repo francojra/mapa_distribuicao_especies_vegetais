@@ -88,7 +88,7 @@ america <- world %>%
 
 # Ajustar os limites do mapa para focar na América do Norte
 xlim <- c(-82, -34)
-ylim <- c(-56, 13)   
+ylim <- c(-39, 9)   
 
 # Visualizar mapa --------------------------------------------------------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ cols4all::c4a_table(type = "cat", n = 5)
 # Criar mapa básico com ggplot2
 
 ggplot() +
-  geom_sf(data = america, fill = "gray8", 
+  geom_sf(data = america, fill = "gray80", 
           color = "white") +  # Fronteiras dos países
   geom_sf(data = coords_sf, aes(color = "Mustela nigripes"),
           size = 2, alpha = 0.8) + 
