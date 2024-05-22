@@ -87,8 +87,8 @@ america <- world %>%
   filter(continent %in% c("South America")) 
 
 # Ajustar os limites do mapa para focar na América do Norte
-xlim <- c(-82, -34)
-ylim <- c(-38, 8.5)   
+xlim <- c(-80, -33)
+ylim <- c(-37, 7)   
 
 # Visualizar mapa --------------------------------------------------------------------------------------------------------------------------
 
@@ -99,28 +99,28 @@ cols4all::c4a_table(type = "cat", n = 5)
 # Criar mapa básico com ggplot2
 
 ggplot() +
-  geom_sf(data = america, fill = "gray20", 
-          color = "white") +  # Fronteiras dos países
+  geom_sf(data = america, fill = "black", 
+          color = "#d9f0a3") +  # Fronteiras dos países
   geom_sf(data = coords_sf, aes(color = "Mustela nigripes"),
-          size = 2.2, alpha = 0.7) + 
+          size = 2.3, alpha = 0.8) + 
   geom_sf(data = coords_sf1, aes(color = "Bison bison"), 
-          size = 2.2, alpha = 0.7) + 
+          size = 2.3, alpha = 0.8) + 
   geom_sf(data = coords_sf2, aes(color = "Gymnogyps californianus"),
-          size = 2.2, alpha = 0.7) + 
+          size = 2.3, alpha = 0.8) + 
   geom_sf(data = coords_sf3, aes(color = "Oncorhynchus nerka"),
-          size = 2.2, alpha = 0.7) +
+          size = 2.3, alpha = 0.8) +
   geom_sf(data = coords_sf4, aes(color = "Canis rufus"),
-          size = 2.2, alpha = 0.7) +
+          size = 2.3, alpha = 0.8) +
   scale_color_manual(labels = c(expression(italic("Mustela nigripes")),
                                 expression(italic("Bison bison")),
                                 expression(italic("Gymnogyps californianus")),
                                 expression(italic("Oncorhynchus nerka")),
                                 expression(italic("Canis rufus"))),
       values = c(c("#DF9ED4", "#C93F55", 
-                                  "#EACC62", "#469D76", 
-                                  "#3C4B99"))) +
+                    "#EACC62", "#469D76", 
+                              "#3C4B99"))) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de 5 Espécies Arbóreas Nativas Ameaçadas de Extinção\n na América do Sul",
+  labs(title = "Distribuição de cinco Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
