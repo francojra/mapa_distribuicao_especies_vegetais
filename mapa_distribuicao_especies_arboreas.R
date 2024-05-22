@@ -87,8 +87,8 @@ america <- world %>%
   filter(continent %in% c("South America")) 
 
 # Ajustar os limites do mapa para focar na América do Norte
-xlim <- c(-80, -33)
-ylim <- c(-37, 7)   
+xlim <- c(-81, -36)
+ylim <- c(-37, 6.7)   
 
 # Visualizar mapa --------------------------------------------------------------------------------------------------------------------------
 
@@ -111,7 +111,7 @@ ggplot() +
           size = 2.3, alpha = 0.8) +
   geom_sf(data = coords_sf4, aes(color = "Canis rufus"),
           size = 2.3, alpha = 0.8) +
-  scale_color_manual(labels = c(expression(italic("Mustela nigripes")),
+  scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
                                 expression(italic("Bison bison")),
                                 expression(italic("Gymnogyps californianus")),
                                 expression(italic("Oncorhynchus nerka")),
