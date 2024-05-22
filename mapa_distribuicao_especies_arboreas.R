@@ -21,13 +21,13 @@ library(cols4all)
 species_name <- c("Paubrasilia echinata")
 occ_data <- occ_search(scientificName = species_name, limit = 500)
 
-species_name1 <- c("Dimorphandra wilsonii Rizzini")
+species_name1 <- c("Dimorphandra wilsonii Rizzini") # Cerrado
 occ_data1 <- occ_search(scientificName = species_name1, limit = 500)
 
-species_name2 <- c("Bertholletia excelsa")
+species_name2 <- c("Achyrocline satureioides") # Pampa
 occ_data2 <- occ_search(scientificName = species_name2, limit = 500)
 
-species_name3 <- c("Cariniana legalis")
+species_name3 <- c("Bertholletia excelsa") # Amazonia
 occ_data3 <- occ_search(scientificName = species_name3, limit = 500)
 
 species_name4 <- c("Anadenanthera colubrina")
@@ -125,7 +125,7 @@ ggplot() +
                                 expression(italic("Cariniana legalis")),
                                 expression(italic("Anadenanthera colubrina"))),
       values = c(c(	
-c("#994455", "#6699CC", "#004488", "#EECC66")))) + 
+c("#6388B4", "#FFAE34", "#EF6F6A", "#8CC2CA", "#55AD89")))) + 
   coord_sf(xlim = xlim, ylim = ylim) +
   labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
