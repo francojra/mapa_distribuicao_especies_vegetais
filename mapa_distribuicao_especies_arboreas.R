@@ -109,35 +109,35 @@ cols4all::c4a_table(type = "cat", n = 5)
 ggplot() +
  geom_sf(data = brazil, fill = "#000000", 
           color = "#d9f0a3") +  
-  geom_sf(data = coords_sf_brazil, aes(color = "Mustela nigripes"),
-          size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf_brazil1, aes(color = "Bison bison"), 
-          size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf_brazil2, aes(color = "Gymnogyps californianus"),
-          size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf_brazil3, aes(color = "Oncorhynchus nerka"),
-          size = 2, alpha = 0.9) +
-  geom_sf(data = coords_sf_brazil4, aes(color = "Canis rufus"),
-          size = 2, alpha = 0.9) +
+  geom_sf(data = coords_sf_brazil, aes(color = "Paubrasilia echinata"),
+          size = 2.2, alpha = 0.9, shape = 18) + 
+  geom_sf(data = coords_sf_brazil1, aes(color = "Araucaria angustifolia"), 
+          size = 2.2, alpha = 0.9, shape = 18) + 
+  geom_sf(data = coords_sf_brazil2, aes(color = "Euterpe edulis"),
+          size = 2.2, alpha = 0.9, shape = 18) + 
+  geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
+          size = 2.2, alpha = 0.9, shape = 18) +
+  geom_sf(data = coords_sf_brazil4, aes(color = "Anadenanthera colubrina"),
+          size = 2.2, alpha = 0.9, shape = 18) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
-                                expression(italic("Bison bison")),
-                                expression(italic("Gymnogyps californianus")),
-                                expression(italic("Oncorhynchus nerka")),
-                                expression(italic("Canis rufus"))),
-      values = c(c("#DF9ED4", "#C93F55", 
-                    "#EACC62", "#469D76", 
-                              "#3C4B99"))) +
+                                expression(italic("Araucaria angustifolia")),
+                                expression(italic("Euterpe edulis")),
+                                expression(italic("Cariniana legalis")),
+                                expression(italic("Anadenanthera colubrina"))),
+      values = c(c("#469D76", "#C93F55", 
+                    "#EACC62", "#DF9ED4", 
+                              "#3C4B99"))) + 
   coord_sf(xlim = xlim, ylim = ylim) +
   labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
   theme_minimal() +
-  theme(legend.position = c(1, 0.9),
-        axis.text = element_text(color = "black",size = 12),
-        axis.title = element_text(size = 10, hjust = 1, lineheight = 5),
-        legend.text = element_text(size = 12),
-        text = element_text(size = 12),
+  theme(legend.position = c(0.28, 0.28),
+        axis.text = element_text(color = "black",size = 9),
+        axis.title = element_text(size = 10, hjust = 1),
+        legend.text = element_text(size = 11),
+        text = element_text(size = 10),
         legend.text.align = 0) 
 
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
