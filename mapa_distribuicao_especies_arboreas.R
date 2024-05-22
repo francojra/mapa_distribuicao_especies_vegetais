@@ -83,8 +83,7 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 
 # Filtrar para um país específico (por exemplo, Brasil)
 
-america <- world %>%
-  filter(continent %in% c("South America")) 
+brazil <- world %>% filter(name == "Brazil") 
 
 # Ajustar os limites do mapa para focar na América do Norte
 xlim <- c(-81, -36)
@@ -99,7 +98,7 @@ cols4all::c4a_table(type = "cat", n = 5)
 # Criar mapa básico com ggplot2
 
 ggplot() +
-  geom_sf(data = america, fill = "black", 
+  geom_sf(data = brazil, fill = "black", 
           color = "#d9f0a3") +  # Fronteiras dos países
   geom_sf(data = coords_sf, aes(color = "Mustela nigripes"),
           size = 2, alpha = 0.9) + 
