@@ -67,8 +67,8 @@ c4a_gui()
 
 ggplot() +
  geom_sf(data = brazil, fill = "#000000") +  
-geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.3, 
-        alpha = 0.8, shape = 18) +  # Ocorrências das espécies no Brasil
+geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
+        shape = 18, alpha = 0.5) +  # Ocorrências das espécies no Brasil
   scale_color_manual(
     values = c(
       "Paubrasilia echinata" = "#CC6677",
