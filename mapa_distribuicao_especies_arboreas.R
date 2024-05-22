@@ -115,8 +115,8 @@ ggplot() +
           size = 2.3, alpha = 0.8, shape = 18) + 
   geom_sf(data = coords_sf_brazil2, aes(color = "Bertholletia excelsa"),
           size = 2.3, alpha = 0.8, shape = 18) + 
-#  geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
-#          size = 2.3, alpha = 0.8, shape = 18) +
+ geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
+          size = 2.3, alpha = 0.8, shape = 18) +
   geom_sf(data = coords_sf_brazil4, aes(color = "Anadenanthera colubrina"),
         size = 2.3, alpha = 0.8, shape = 18) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
@@ -125,7 +125,7 @@ ggplot() +
                                 expression(italic("Cariniana legalis")),
                                 expression(italic("Anadenanthera colubrina"))),
       values = c(c(	
-c("#6388B4", "#FFAE34", "#EF6F6A", "#8CC2CA", "#55AD89")))) + 
+c("#CC6677", "#332288", "#DDCC77", "#117733", "#88CCEE")))) + 
   coord_sf(xlim = xlim, ylim = ylim) +
   labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
