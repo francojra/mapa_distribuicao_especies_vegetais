@@ -85,7 +85,16 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 
 brazil <- world %>% filter(name == "Brazil") 
 
+# Filtrar ocorrências para aquelas dentro do Brasil
+
+coords_sf_brazil <- coords_sf[brazil, ]
+coords_sf_brazil1 <- coords_sf1[brazil, ]
+coords_sf_brazil2 <- coords_sf2[brazil, ]
+coords_sf_brazil3 <- coords_sf3[brazil, ]
+coords_sf_brazil4 <- coords_sf4[brazil, ]
+
 # Ajustar os limites do mapa para focar na América do Norte
+
 xlim <- c(-81, -36)
 ylim <- c(-37, 6.7)   
 
@@ -98,17 +107,17 @@ cols4all::c4a_table(type = "cat", n = 5)
 # Criar mapa básico com ggplot2
 
 ggplot() +
-  geom_sf(data = brazil, fill = "black", 
-          color = "#d9f0a3") +  # Fronteiras dos países
-  geom_sf(data = coords_sf, aes(color = "Mustela nigripes"),
+ geom_sf(data = brazil, fill = "#000000", 
+          color = "#d9f0a3") +  
+  geom_sf(data = coords_sf_brazil, aes(color = "Mustela nigripes"),
           size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf1, aes(color = "Bison bison"), 
+  geom_sf(data = coords_sf_brazil1, aes(color = "Bison bison"), 
           size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf2, aes(color = "Gymnogyps californianus"),
+  geom_sf(data = coords_sf_brazil2, aes(color = "Gymnogyps californianus"),
           size = 2, alpha = 0.9) + 
-  geom_sf(data = coords_sf3, aes(color = "Oncorhynchus nerka"),
+  geom_sf(data = coords_sf_brazil3, aes(color = "Oncorhynchus nerka"),
           size = 2, alpha = 0.9) +
-  geom_sf(data = coords_sf4, aes(color = "Canis rufus"),
+  geom_sf(data = coords_sf_brazil4, aes(color = "Canis rufus"),
           size = 2, alpha = 0.9) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
                                 expression(italic("Bison bison")),
@@ -119,12 +128,12 @@ ggplot() +
                     "#EACC62", "#469D76", 
                               "#3C4B99"))) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de Cinco Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
+  labs(title = "Distribuição de Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
   theme_minimal() +
-  theme(legend.position = c(1, 0.2),
+  theme(legend.position = c(1, 0.9),
         axis.text = element_text(color = "black",size = 12),
         axis.title = element_text(size = 10, hjust = 1, lineheight = 5),
         legend.text = element_text(size = 12),
