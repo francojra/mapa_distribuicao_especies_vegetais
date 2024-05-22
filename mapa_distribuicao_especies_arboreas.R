@@ -120,12 +120,12 @@ ggplot() +
                     "#EACC62", "#469D76", 
                               "#3C4B99"))) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de cinco Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
+  labs(title = "Distribuição de Cinco Espécies Arbóreas Nativas Ameaçadas\n de Extinção na América do Sul",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
   theme_minimal() +
-  theme(#legend.position = "bottom", # c(0.3, 0.38)
+  theme(legend.position = c(1, 0.2),
         axis.text = element_text(color = "black",size = 12),
         axis.title = element_text(size = 10, hjust = 1, lineheight = 5),
         legend.text = element_text(size = 12),
