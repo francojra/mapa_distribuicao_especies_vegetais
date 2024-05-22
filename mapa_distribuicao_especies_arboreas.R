@@ -109,15 +109,15 @@ cols4all::c4a_table(type = "cat", n = 5)
 ggplot() +
  geom_sf(data = brazil, fill = "#000000") +  
   geom_sf(data = coords_sf_brazil, aes(color = "Paubrasilia echinata"),
-          size = 2.2, alpha = 0.9, shape = 18) + 
+          size = 2.3, alpha = 0.8, shape = 18) + 
   geom_sf(data = coords_sf_brazil1, aes(color = "Araucaria angustifolia"), 
-          size = 2.2, alpha = 0.9, shape = 18) + 
+          size = 2.3, alpha = 0.8, shape = 18) + 
   geom_sf(data = coords_sf_brazil2, aes(color = "Euterpe edulis"),
-          size = 2.2, alpha = 0.9, shape = 18) + 
+          size = 2.3, alpha = 0.8, shape = 18) + 
   geom_sf(data = coords_sf_brazil3, aes(color = "Cariniana legalis"),
-          size = 2.2, alpha = 0.9, shape = 18) +
+          size = 2.3, alpha = 0.8, shape = 18) +
   geom_sf(data = coords_sf_brazil4, aes(color = "Anadenanthera colubrina"),
-          size = 2.2, alpha = 0.9, shape = 18) +
+          size = 2.3, alpha = 0.8, shape = 18) +
   scale_color_manual(labels = c(expression(italic("Paubrasilia echinata")),
                                 expression(italic("Araucaria angustifolia")),
                                 expression(italic("Euterpe edulis")),
@@ -132,9 +132,9 @@ c("#6699CC", "#004488", "#EECC66", "#994455", "#997700")))) +
        colour = "") +
   theme_minimal() +
   theme(legend.position = c(0.28, 0.28),
-        axis.text = element_text(color = "black",size = 9),
+        axis.text = element_text(color = "black",size = 8),
         axis.title = element_text(size = 10, hjust = 1),
-        legend.text = element_text(size = 11),
+        legend.text = element_text(size = 10),
         text = element_text(size = 10),
         legend.text.align = 0) 
 
