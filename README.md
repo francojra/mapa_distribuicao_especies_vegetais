@@ -1,2 +1,6 @@
-# mapa_distribuicao_especies_arboreas
-Script para produção de um mapa de distribuição de espécies arbóreas ameaçadas de extinção na América do Sul.
+# Mapa de distribuição de espécies em risco de extinção no Brasil
+# Autoria do script: Jeanne Franco
+# Data: 21/05/24 
+
+## Tópicos do script:
+
