@@ -71,10 +71,10 @@ ylim <- c(-37, 6.7)
 # Criar mapa básico com ggplot2
 
 map_sp_vegetation <- ggplot() +
-  geom_sf(data = my_biom, color = "gray60", 
+  geom_sf(data = my_biom, color = "gray55", 
         fill = "gray3", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
-geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
+geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.3, 
         shape = 18) +  # Ocorrências das espécies no Brasil
   scale_color_manual(
     values = c(
@@ -92,7 +92,7 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
       "Myracrodruon urundeuva" = expression(italic("Myracrodruon urundeuva"))
     )) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de Espécies Vegetais Ameaçadas de Extinção no Brasil",
+  labs(title = "Distribuição de Espécies Vegetais no Brasil",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
@@ -102,9 +102,8 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
         axis.title = element_text(size = 8, hjust = 1),
         legend.text = element_text(size = 10),
         legend.key = element_rect(fill = "gray3", size = 1.58),
-        plot.title = element_text(hjust = 0.5, size = 11.6),
+        plot.title = element_text(hjust = 0.2, size = 11.6),
         legend.text.align = 0) 
-
 map_sp_vegetation
 
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
