@@ -65,8 +65,8 @@ ylim <- c(-37, 6.7)
 
 # Definir cores
 
-cols4all::c4a_table(type = "cat", n = 5)
-c4a_gui()
+#cols4all::c4a_table(type = "cat", n = 5)
+#c4a_gui()
 
 # Criar mapa básico com ggplot2
 
@@ -102,12 +102,14 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
         text = element_text(size = 10),
         legend.text.align = 0) 
 
+map_sp_vegetation
+
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
 
-ggsave("m.jpg", dpi = 300,
+ggsave("map_sp_vegetation.jpg", dpi = 300,
        width = 35, height = 15, 
-       units = "cm", m)
+       units = "cm", map_sp_vegetation)
 
-ggsave("m.pdf", dpi = 300,
+ggsave("map_sp_vegetation.pdf", dpi = 300,
        width = 35, height = 15, 
-       units = "cm", m) 
+       units = "cm", map_sp_vegetation) 
