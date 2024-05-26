@@ -96,9 +96,9 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2,
        x = "Longitude",
        y = "Latitude",
        colour = "",
-       caption = "*GBIF—the Global Biodiversity Information Facility—is an international network and data infrastructure funded by\n the world's governments and aimed at providing anyone, anywhere, open access\n to data about all types of life on Earth.") +
+       caption = "*GBIF – Global Biodiversity Information Facility – é uma rede internacional e uma infra-estrutura de dados financiada\n pelos governos de todo o mundo e que visa fornecer a qualquer pessoa, em qualquer lugar, acesso aberto\n a dados sobre todos os tipos de vida na Terra.") +
   theme_minimal() +
-  theme(legend.position = c(0.27, 0.35),
+  theme(legend.position = c(0.26, 0.35),
         axis.text = element_text(color = "black",size = 8),
         axis.title = element_text(size = 8, hjust = 1),
         legend.text = element_text(size = 10),
