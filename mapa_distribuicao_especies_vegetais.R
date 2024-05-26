@@ -72,7 +72,7 @@ ylim <- c(-37, 6.7)
 
 map_sp_vegetation <- ggplot() +
   geom_sf(data = my_biom, color = "gray60", 
-        fill = "gray8", show.legend = F) +
+        fill = "gray4", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
 geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
         shape = 18, alpha = 0.6) +  # Ocorrências das espécies no Brasil
@@ -92,18 +92,17 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
       "Myracrodruon urundeuva" = expression(italic("Myracrodruon urundeuva"))
     )) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de Espécies Vegetais Ameaçadas\n de Extinção no Brasil",
+  labs(title = "Distribuição de Espécies Vegetais Ameaçadas de Extinção no Brasil",
        x = "Longitude",
        y = "Latitude",
        colour = "") +
   theme_minimal() +
   theme(legend.position = c(0.28, 0.28),
         axis.text = element_text(color = "black",size = 8),
-        axis.title = element_text(size = 10, hjust = 1),
-        legend.text = element_text(size = 10),
-        text = element_text(size = 10),
-        legend.key = element_rect(fill = "gray8", 
-                                       size = 1.58),
+        axis.title = element_text(size = 8, hjust = 1),
+        legend.text = element_text(size = 11),
+        legend.key = element_rect(fill = "gray4", size = 1.58),
+        plot.title = element_text(hjust = 0.5, size = 8),
         legend.text.align = 0) 
 
 map_sp_vegetation
