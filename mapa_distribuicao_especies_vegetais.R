@@ -72,7 +72,7 @@ ylim <- c(-37, 6.7)
 
 map_sp_vegetation <- ggplot() +
   geom_sf(data = my_biom, color = "gray60", 
-        fill = "gray10", show.legend = F) +
+        fill = "gray8", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
 geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
         shape = 18, alpha = 0.6) +  # Ocorrências das espécies no Brasil
@@ -102,7 +102,7 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
         axis.title = element_text(size = 10, hjust = 1),
         legend.text = element_text(size = 10),
         text = element_text(size = 10),
-        legend.key = element_rect(fill = "gray10", 
+        legend.key = element_rect(fill = "gray8", 
                                        size = 1.58),
         legend.text.align = 0) 
 
