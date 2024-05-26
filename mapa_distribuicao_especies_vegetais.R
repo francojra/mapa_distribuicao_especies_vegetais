@@ -92,10 +92,14 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2,
       "Myracrodruon urundeuva" = expression(italic("Myracrodruon urundeuva"))
     )) +
   coord_sf(xlim = xlim, ylim = ylim) +
-  labs(title = "Distribuição de Espécies Vegetais no Brasil",
+  labs(title = "Distribuição de Espécies Vegetais no Brasil - Dados GBIF*",
        x = "Longitude",
        y = "Latitude",
-       colour = "") +
+       colour = "",
+       caption = "GBIF—the Global Biodiversity Information Facility—is an 
+       international network and data infrastructure funded by the world's 
+       governments and aimed at providing anyone, anywhere, open access to 
+       data about all types of life on Earth.") +
   theme_minimal() +
   theme(legend.position = c(0.27, 0.35),
         axis.text = element_text(color = "black",size = 8),
@@ -103,6 +107,7 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2,
         legend.text = element_text(size = 10),
         legend.key = element_rect(fill = "gray3", size = 1.58),
         plot.title = element_text(hjust = 0.1, size = 11),
+        plot.caption = element_text(hjust = 0.1, size = 8),
         legend.text.align = 0) 
 map_sp_vegetation
 
