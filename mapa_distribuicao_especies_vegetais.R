@@ -74,7 +74,7 @@ map_sp_vegetation <- ggplot() +
   geom_sf(data = my_biom, color = "gray55", 
         fill = "gray3", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
-geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.3, 
+geom_sf(data = coords_sf_brazil, aes(color = species), size = 2, 
         shape = 18) +  # Ocorrências das espécies no Brasil
   scale_color_manual(
     values = c(
