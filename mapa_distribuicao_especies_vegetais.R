@@ -75,14 +75,14 @@ map_sp_vegetation <- ggplot() +
         fill = "gray10", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
 geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
-        shape = 18, alpha = 0.5) +  # Ocorrências das espécies no Brasil
+        shape = 18, alpha = 0.6) +  # Ocorrências das espécies no Brasil
   scale_color_manual(
     values = c(
       "Paubrasilia echinata" = "#CC6677",
-      "Setaria parviflora" = "#332288",
+      "Setaria parviflora" = "#88CCEE", 
       "Achyrocline satureioides" = "#DDCC77",
       "Bertholletia excelsa" = "#117733",
-      "Myracrodruon urundeuva" = "#88CCEE"
+      "Myracrodruon urundeuva" = "#cab2d6"
     ),
     labels = c(
       "Paubrasilia echinata" = expression(italic("Paubrasilia echinata")),
@@ -102,8 +102,8 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
         axis.title = element_text(size = 10, hjust = 1),
         legend.text = element_text(size = 10),
         text = element_text(size = 10),
-        legen.background = element_rect(fill = "gray10", 
-                                       size = 0.5),
+        legend.key = element_rect(fill = "gray10", 
+                                       size = 1.58),
         legend.text.align = 0) 
 
 map_sp_vegetation
