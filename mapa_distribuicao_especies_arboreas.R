@@ -51,6 +51,11 @@ brazil <- world %>% filter(name == "Brazil")
 
 coords_sf_brazil <- st_intersection(coords_sf_all, brazil)
 
+## Dados biomas
+
+my_biom <- read_sf("lm_bioma_250.shp") 
+view(my_biom)
+
 # Ajustar os limites do mapa para focar na América do Norte
 
 xlim <- c(-81, -36)
