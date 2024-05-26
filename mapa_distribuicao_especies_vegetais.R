@@ -97,12 +97,12 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
        y = "Latitude",
        colour = "") +
   theme_minimal() +
-  theme(legend.position = c(0.28, 0.28),
+  theme(legend.position = c(0.25, 0.24),
         axis.text = element_text(color = "black",size = 8),
         axis.title = element_text(size = 8, hjust = 1),
         legend.text = element_text(size = 10),
         legend.key = element_rect(fill = "gray4", size = 1.58),
-        plot.title = element_text(hjust = 0.5, size = 9),
+        plot.title = element_text(hjust = 0.5, size = 10),
         legend.text.align = 0) 
 
 map_sp_vegetation
