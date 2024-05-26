@@ -102,7 +102,7 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.3,
         axis.title = element_text(size = 8, hjust = 1),
         legend.text = element_text(size = 10),
         legend.key = element_rect(fill = "gray3", size = 1.58),
-        plot.title = element_text(hjust = 0.2, size = 11.6),
+        plot.title = element_text(hjust = 0.1, size = 11),
         legend.text.align = 0) 
 map_sp_vegetation
 
