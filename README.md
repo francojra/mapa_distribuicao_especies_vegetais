@@ -1,4 +1,4 @@
-# Mapa de distribuição de espécies vegetais em risco de extinção no Brasil
+# Mapa de distribuição de espécies vegetais no Brasil
 # Autoria do script: Jeanne Franco
 # Data: 21/05/24 
 
