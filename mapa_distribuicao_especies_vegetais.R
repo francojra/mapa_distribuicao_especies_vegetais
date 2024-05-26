@@ -72,10 +72,10 @@ ylim <- c(-37, 6.7)
 
 map_sp_vegetation <- ggplot() +
   geom_sf(data = my_biom, color = "gray60", 
-        fill = "gray4", show.legend = F) +
+        fill = "gray3", show.legend = F) +
  #  geom_sf(data = brazil, fill = "#000000") + 
 geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5, 
-        shape = 18, alpha = 0.6) +  # Ocorrências das espécies no Brasil
+        shape = 18) +  # Ocorrências das espécies no Brasil
   scale_color_manual(
     values = c(
       "Paubrasilia echinata" = "#CC6677",
@@ -97,12 +97,12 @@ geom_sf(data = coords_sf_brazil, aes(color = species), size = 2.5,
        y = "Latitude",
        colour = "") +
   theme_minimal() +
-  theme(legend.position = c(0.25, 0.24),
+  theme(legend.position = c(0.27, 0.35),
         axis.text = element_text(color = "black",size = 8),
         axis.title = element_text(size = 8, hjust = 1),
         legend.text = element_text(size = 10),
-        legend.key = element_rect(fill = "gray4", size = 1.58),
-        plot.title = element_text(hjust = 0.5, size = 10),
+        legend.key = element_rect(fill = "gray3", size = 1.58),
+        plot.title = element_text(hjust = 0.5, size = 11.6),
         legend.text.align = 0) 
 
 map_sp_vegetation
